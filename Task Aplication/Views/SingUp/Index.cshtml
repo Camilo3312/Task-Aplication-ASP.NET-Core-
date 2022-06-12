@@ -1,0 +1,46 @@
+﻿@model Task_Aplication.Models.DataBase.User
+
+@{
+    ViewData["title"] = "Registro";
+}
+
+<div class="container">
+       <h1 class="title_registry">Registro de usuario</h1>
+      <form method="post" asp-action="Index">
+          <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+          <div class="mb-3">
+              <label asp-for="Names" class="form-label">Nombre de usuario</label>
+              <input asp-for="Names" type="text" class="form-control">
+              <span asp-validation-for="Names" class="text-danger"></span>
+           </div>
+           <div class="mb-3">
+              <label asp-for="Email" class="form-label">Correo</label>
+              <input asp-for="Email" type="email" class="form-control">
+              <span asp-validation-for="Email" class="text-danger"></span>
+
+           </div>
+           <div class="mb-3">
+              <label asp-for="Password" class="form-label">Contrasena</label>
+              <input asp-for="Password" type="password" class="form-control">
+              <span asp-validation-for="Password" class="text-danger"></span>
+
+           </div>
+
+            <div class="mb-3">
+              <label asp-for="ImageProfile" class="form-label">Seleccione una imagen de perfil</label>
+              <input asp-for="ImageProfile" type="text" class="form-control">
+              <span asp-validation-for="ImageProfile" class="text-danger"></span>
+           </div>
+
+            <div class="mb-3">
+              <input type="submit" class="btn btn-dark" value="Registrate" />
+           </div>
+
+      </form>
+</div>
+
+@section Scripts{
+    @{ <partial name="_ValidationScriptsPartial"/> }
+
+    
+}

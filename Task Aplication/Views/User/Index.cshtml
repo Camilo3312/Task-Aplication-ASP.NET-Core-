@@ -1,0 +1,11 @@
+﻿@model List<Task_Aplication.Models.DataBase.Task>
+
+<h1>Test</h1>
+
+@{
+    ViewData["title"] = "Practice";
+}
+@foreach (var item in Model)
+{
+    <p>@item.Infotask</p>
+}

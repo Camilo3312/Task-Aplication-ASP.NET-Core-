@@ -1,0 +1,36 @@
+﻿@model Task_Aplication.Models.Login
+@{
+    Layout = null; 
+}
+<head>
+    <meta charset="utf-8" />
+    <title>Iniciar sesion</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="~/sass/stylesheet.min.css" />
+</head>
+<section class="login_section">
+    <div class="image_login">
+        <img src="https://cdn.wedevs.com/uploads/2020/06/Task-Manager-App-.png" alt="" />
+    </div>
+    <div class="login_form">
+
+        <h1 class="title_registry">Iniciar sesión</h1>
+        <form method="post" asp-action="Index">
+
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                <div class="mb-3">
+                   <label asp-for="Email" class="form-label">Correo</label>
+                   <input asp-for="Email" type="email" class="form-control">
+                   <span asp-validation-for="Email" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                   <label asp-for="Password" class="form-label">Contraseña</label>
+                   <input asp-for="Password" type="password" class="form-control">
+                   <span asp-validation-for="Password" class="text-danger"></span>
+                </div>
+
+                <input type="submit" value="Ingresar" class="btn btn-secondary" />
+        </form>
+    </div>
+</section>
