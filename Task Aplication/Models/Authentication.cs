@@ -11,7 +11,7 @@ namespace Task_Aplication.Models
 
         [Required(ErrorMessage = "Porfavor ingrese una contraseña")]
         [DataType(DataType.Password)]
-        [Display(Name = "Correo")]
+        [Display(Name = "Contraseña")]
         public string Password { get; set; }
     }
 }

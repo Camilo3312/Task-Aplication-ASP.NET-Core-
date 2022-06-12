@@ -1,46 +1,47 @@
 ﻿@model Task_Aplication.Models.DataBase.User
 
 @{
-    ViewData["title"] = "Registro";
+    ViewData["title"] = "Registro";   
+    Layout = "_LayoutAuth"; 
 }
 
-<div class="container">
-       <h1 class="title_registry">Registro de usuario</h1>
-      <form method="post" asp-action="Index">
+<div class="container_sing_in_form">
+
+      <h3 class="subtitle_name_app">Aplicación de tareas</h3>
+      <h1 class="title_registry">Registro de usuario</h1>
+      <form class="sing_in_form" method="post" asp-action="Index">
           <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-          <div class="mb-3">
-              <label asp-for="Names" class="form-label">Nombre de usuario</label>
-              <input asp-for="Names" type="text" class="form-control">
+
+          <div class="section_input">
+              <label asp-for="Names" class="subtitle_input"></label>
+              <input class="input_text_login" asp-for="Names" type="text" class="form-control" placeholder="Nombres...">
               <span asp-validation-for="Names" class="text-danger"></span>
            </div>
-           <div class="mb-3">
-              <label asp-for="Email" class="form-label">Correo</label>
-              <input asp-for="Email" type="email" class="form-control">
+
+           <div class="section_input">
+              <label asp-for="Email" class="subtitle_input"></label>
+              <input class="input_text_login" asp-for="Email" type="email" class="form-control" placeholder="Dirección de correo electronico" />
               <span asp-validation-for="Email" class="text-danger"></span>
 
            </div>
-           <div class="mb-3">
-              <label asp-for="Password" class="form-label">Contrasena</label>
-              <input asp-for="Password" type="password" class="form-control">
+           <div class="section_input">
+              <label asp-for="Password" class="subtitle_input"></label>
+              <input class="input_text_login" asp-for="Password" type="password" class="form-control" placeholder="Contraseña..." />
               <span asp-validation-for="Password" class="text-danger"></span>
 
            </div>
 
             <div class="mb-3">
-              <label asp-for="ImageProfile" class="form-label">Seleccione una imagen de perfil</label>
-              <input asp-for="ImageProfile" type="text" class="form-control">
+              <label asp-for="ImageProfile" class="subtitle_input"></label>
+              <input class="input_text_login" asp-for="ImageProfile" type="text"/>
               <span asp-validation-for="ImageProfile" class="text-danger"></span>
            </div>
 
-            <div class="mb-3">
-              <input type="submit" class="btn btn-dark" value="Registrate" />
-           </div>
+            <div class="inputs_sing_in_form">
+                <input type="submit" value="Registrar" class="button_submit" />
+                <a asp-controller="Login" asp-action="Index" class="button_redirect" />Iniciar sesión</a>
+            </div>
 
       </form>
 </div>
 
-@section Scripts{
-    @{ <partial name="_ValidationScriptsPartial"/> }
-
-    
-}

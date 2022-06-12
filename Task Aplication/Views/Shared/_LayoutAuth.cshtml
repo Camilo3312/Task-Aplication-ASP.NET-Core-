@@ -1,0 +1,16 @@
+﻿<head>
+    <meta charset="utf-8" />
+    <title>@ViewData["title"]</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="~/sass/stylesheet.min.css" />
+</head>
+<section class="login_section">
+    <div class="image_login">
+        <img src="https://cdn.wedevs.com/uploads/2020/06/Task-Manager-App-.png" alt="" />
+    </div>  
+    @RenderBody()   
+</section>
+@section Scripts{
+    @{ <partial name="_ValidationScriptsPartial"/> }
+}
+

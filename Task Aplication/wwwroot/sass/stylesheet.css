@@ -1,4 +1,6 @@
 ﻿@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700;900&display=swap");
+/* Backgrounds */
+/* Text */
 * {
   margin: 0;
   padding: 0;
@@ -19,9 +21,146 @@ body .login_section .image_login img {
   height: 100%;
   object-fit: cover;
 }
-body .login_section .login_form {
-  padding: 20px;
+body .login_section .login_form_container {
+  width: 30%;
+  padding: 40px;
 }
-body .login_section .login_form .title_registry {
+body .login_section .login_form_container .title_registry {
+  color: #313131;
+  font-size: 2em;
   font-weight: 700;
+  margin: 0 0 20px 0;
+}
+body .login_section .login_form_container .subtitle_name_app {
+  color: #4f4f4f;
+  font-size: 1.3em;
+  font-weight: 700;
+}
+body .login_section .login_form_container .login_form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+body .login_section .login_form_container .login_form .section_input {
+  display: flex;
+  flex-direction: column;
+}
+body .login_section .login_form_container .login_form .section_input .subtitle_input {
+  color: #313131;
+}
+body .login_section .login_form_container .login_form .section_input .input_text_login {
+  padding: 10px 0;
+  border: none;
+  outline: none;
+  border-bottom: 2px solid #b2b2b2;
+  color: #4f4f4f;
+  font-size: 16px;
+}
+body .login_section .login_form_container .login_form .section_input .input_text_login::placeholder {
+  color: #b2b2b2;
+}
+body .login_section .login_form_container .login_form .inputs_login_form {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+body .login_section .login_form_container .login_form .inputs_login_form .button_submit {
+  padding: 10px 20px;
+  border-radius: 20px;
+  outline: none;
+  border: none;
+  background: linear-gradient(#c281e6, #d662ab);
+  font-weight: 700;
+  color: #FFFF;
+  font-size: 16px;
+  text-align: center;
+  flex: 1 1 auto;
+}
+body .login_section .login_form_container .login_form .inputs_login_form .button_redirect {
+  padding: 10px 20px;
+  border-radius: 20px;
+  outline: none;
+  border: none;
+  background: linear-gradient(#c281e6, #d662ab);
+  font-weight: 700;
+  color: #FFFF;
+  font-size: 16px;
+  text-align: center;
+  background: #e6e6e6;
+  color: #b2b2b2;
+  font-weight: 400;
+  text-decoration: none;
+  flex: 1 1 auto;
+}
+body .container_sing_in_form {
+  width: 30%;
+  padding: 40px;
+}
+body .container_sing_in_form .title_registry {
+  color: #313131;
+  font-size: 2em;
+  font-weight: 700;
+  margin: 0 0 20px 0;
+}
+body .container_sing_in_form .subtitle_name_app {
+  color: #4f4f4f;
+  font-size: 1.3em;
+  font-weight: 700;
+}
+body .container_sing_in_form .sing_in_form {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+body .container_sing_in_form .sing_in_form .section_input {
+  display: flex;
+  flex-direction: column;
+}
+body .container_sing_in_form .sing_in_form .section_input .subtitle_input {
+  color: #313131;
+}
+body .container_sing_in_form .sing_in_form .section_input .input_text_login {
+  padding: 10px 0;
+  border: none;
+  outline: none;
+  border-bottom: 2px solid #b2b2b2;
+  color: #4f4f4f;
+  font-size: 16px;
+}
+body .container_sing_in_form .sing_in_form .section_input .input_text_login::placeholder {
+  color: #b2b2b2;
+}
+body .container_sing_in_form .sing_in_form .inputs_sing_in_form {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+body .container_sing_in_form .sing_in_form .inputs_sing_in_form .button_submit {
+  padding: 10px 20px;
+  border-radius: 20px;
+  outline: none;
+  border: none;
+  background: linear-gradient(#c281e6, #d662ab);
+  font-weight: 700;
+  color: #FFFF;
+  font-size: 16px;
+  text-align: center;
+  flex: 1 1 auto;
+}
+body .container_sing_in_form .sing_in_form .inputs_sing_in_form .button_redirect {
+  padding: 10px 20px;
+  border-radius: 20px;
+  outline: none;
+  border: none;
+  background: linear-gradient(#c281e6, #d662ab);
+  font-weight: 700;
+  color: #FFFF;
+  font-size: 16px;
+  text-align: center;
+  background: #e6e6e6;
+  color: #b2b2b2;
+  font-weight: 400;
+  text-decoration: none;
+  flex: 1 1 auto;
 }

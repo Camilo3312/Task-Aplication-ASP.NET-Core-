@@ -11,7 +11,7 @@ using Task_Aplication.Models;
 using Task_Aplication.Models.DataBase;
 
 namespace Task_Aplication.Controllers
-{
+{   
     public class LoginController : Controller
     {
         private tasksContext _DbContext;

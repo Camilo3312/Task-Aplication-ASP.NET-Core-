@@ -22,12 +22,12 @@
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
                         @if(Context.User.Identity.IsAuthenticated == false) {
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Login" asp-action="Index">Ingresar</a>
+                            </li>
                                 <li class="nav-item">
-                                    <a class="nav-link text-dark" asp-area="" asp-controller="Login" asp-action="Index">Ingresar</a>
-                                </li>
-                                 <li class="nav-item">
-                                    <a class="nav-link text-dark" asp-area="" asp-controller="SingUp" asp-action="Index">Registrate</a>
-                                </li>
+                                <a class="nav-link text-dark" asp-area="" asp-controller="SingUp" asp-action="Index">Registrate</a>
+                            </li>
                         }
                         else
                         {
