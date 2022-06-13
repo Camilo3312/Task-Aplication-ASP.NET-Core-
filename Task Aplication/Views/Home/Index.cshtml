@@ -1,8 +1,28 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["title"] = "Practice";
+    Layout = "_TasksList";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+<a class="link_add_task" asp-controller="Home" asp-action="AddTask">
+<section class="section_form_add_task">
+    <header class="header_form_add_task">
+        <h1>Nueva tarea</h1>
+    </header>
+
+    <div class="form_add_task">
+            <div class="section_input">
+                <label  class="subtitle_input">Título de la tarea</label>
+               <input class="input_text_login" type="text"/> 
+           </div>
+          <div class="section_input">
+              <label class="subtitle_input">Descripción</label>
+                <textarea class="input_text_login" type="text" cols="" rows=""></textarea> 
+           </div>
+
+           <div class="section_input">
+              <label class="subtitle_input">Fecha establecida</label>
+              <input class="input_text_login" type="date" placeholder="Dirección de correo electronico" />
+           </div>       
+    </div>
+</section>
+</a>

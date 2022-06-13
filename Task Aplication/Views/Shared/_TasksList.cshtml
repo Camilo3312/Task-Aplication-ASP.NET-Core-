@@ -1,0 +1,49 @@
+﻿@{
+    Layout = "_Layout";
+}
+
+<section>
+    <div class="center_section_home">
+        @RenderBody()
+        <section class="section_tasks_to_do">
+            <header class="header_tasks_to_do">
+                <h1>Tareas por realizar</h1>
+            </header>
+            <div class="tasks_cards">
+
+            @foreach( var i in  (List<Task_Aplication.Models.DataBase.Task>)ViewBag.TasksListToDo) {
+                <div class="card_info_task">
+                        <h1>@i.Title</h1>
+                        <p>@i.Infotask</p>
+                        <div class="date_task">
+                            <p>@i.Date</p>
+                            @Html.ActionLink("Editar", "UpdateTask", new { task = i.Idtask })
+                            @Html.ActionLink("Eliminar", "DeleteTask", new { task = i.Idtask })
+                        </div>
+                </div>           
+            }
+            </div>
+        </section>
+
+        <section class="section_completed_tasks">
+            <header class="header_completed_tasks">
+                <h1>Tareas culminadas</h1>
+            </header>
+            <div class="tasks_cards">
+            @foreach( var i in (List<Task_Aplication.Models.DataBase.Task>)ViewBag.TasksListCompleted ) {
+               <div class="card_info_task">
+                        <h1>@i.Title</h1>
+                        <p>@i.Infotask</p>
+                        <div class="date_task">
+                            <p>@i.Date</p>
+                            @Html.ActionLink("Editar", "UpdateTask", new { task = i.Idtask })
+                            @Html.ActionLink("Eliminar", "DeleteTask", new { task = i.Idtask })
+                        </div>
+                </div>           
+            }
+             </div>
+        </section>
+
+    </div>
+</section>
+

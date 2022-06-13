@@ -6,61 +6,79 @@ using Newtonsoft.Json;
 using System;
 using System.Linq;
 using System.Security.Claims;
+using Task_Aplication.Data;
 using Task_Aplication.Filters;
 using Task_Aplication.Models;
 using Task_Aplication.Models.DataBase;
+using Web_API;
 
 namespace Task_Aplication.Controllers
 {   
     public class LoginController : Controller
     {
-        private tasksContext _DbContext;
+        private TasksContext _DbContext;
 
-        public LoginController(tasksContext DbContext) => _DbContext = DbContext;
+        public LoginController(TasksContext DbContext) => _DbContext = DbContext;
 
         public IActionResult Index()
         {
-            if (HttpContext.User.Identity.IsAuthenticated == true)         
-                return RedirectToAction("Profile", "NewTask");
-            
             return View();
         }
 
         [HttpPost]
         public IActionResult Index(Login user)
         {
-           if (ModelState.IsValid) { 
-                var findUser = (from i in _DbContext.Users
-                                    where i.Email == user.Email && i.Password == user.Password
-                                    select i).FirstOrDefault();
+            if (!ModelState.IsValid)
+            {
+                TempData["messageError"] = "Complete los campos";
+                return View();
+            }
 
-                if (findUser != null)
-                {
-                    ClaimsIdentity identity = new ClaimsIdentity(CookieAuthenticationDefaults.AuthenticationScheme, ClaimTypes.Name, ClaimTypes.Role);
-                    Claim claimRole = new Claim(ClaimTypes.Role, "User");
-                    Claim claimIdUsuario = new Claim("IdUser", findUser.Iduser.ToString());
+            var findUser = (
+                from i in _DbContext.Users
+                where i.Email == user.Email && i.Password == Encrypt.GetSHA256(user.Password)
+                select i
+            ).FirstOrDefault();
 
-                    identity.AddClaim(claimRole);
-                    identity.AddClaim(claimIdUsuario);
+            if (findUser == null)
+            {
+                TempData["MessageError"] = "Correo o contraseña incorrectos";
+                return View();
+            }
 
-                    ClaimsPrincipal principalUser = new ClaimsPrincipal(identity);
-                    HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, principalUser, new AuthenticationProperties
-                    {
-                        ExpiresUtc = DateTime.Now.AddDays(1)
-                    });
+            ClaimsIdentity identity = new ClaimsIdentity(CookieAuthenticationDefaults.AuthenticationScheme, ClaimTypes.Name, ClaimTypes.Role);
+            Claim claimRole = new Claim(ClaimTypes.Role, findUser.Rol);
+            Claim claimIdUsuario = new Claim("IdUser", findUser.Iduser.ToString());
 
-                    //HttpContext.Session.SetString("SessionUser", JsonConvert.SerializeObject(findUser));
-                    
-                    return RedirectToAction("Profile", "NewTask");
-                }
-           }
-            return View();
+            identity.AddClaim(claimRole);
+            identity.AddClaim(claimIdUsuario);
+
+            ClaimsPrincipal principalUser = new ClaimsPrincipal(identity);
+            HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, principalUser, new AuthenticationProperties
+            {
+                ExpiresUtc = DateTime.Now.AddDays(1)
+            });
+
+            HttpContext.Session.SetString("SessionUser", JsonConvert.SerializeObject(findUser));
+            ViewBag.UserData = findUser.Names;
+
+            if (findUser.Rol == "USER") { 
+                return RedirectToAction("Index", "Home");
+            }
+            else if (findUser.Rol == "ADMIN")
+            {
+                return RedirectToAction("Dashboard", "Admin");
+            } else
+            {
+                return RedirectToAction("Index", "Login");
+            }
         }
+
 
         public IActionResult LogOut()
         {
             HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Index", "Login");
         }
 
     }

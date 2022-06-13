@@ -12,6 +12,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Task_Aplication.Data;
 using Task_Aplication.Models.DataBase;
 
 namespace Task_Aplication
@@ -29,7 +30,7 @@ namespace Task_Aplication
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
-            services.AddDbContext<tasksContext>(options =>
+            services.AddDbContext<TasksContext>(options =>
             {
                 options.UseSqlServer(Configuration.GetConnectionString("DbTasks"));
             });
@@ -47,7 +48,7 @@ namespace Task_Aplication
                 options.DefaultChallengeScheme = CookieAuthenticationDefaults.AuthenticationScheme;
             }).AddCookie(CookieAuthenticationDefaults.AuthenticationScheme, config =>
             {
-                config.AccessDeniedPath = "/Home/Index";
+                config.AccessDeniedPath = "/Shared/Unauthorize";
             });
 
             services.AddSingleton<ITempDataProvider, CookieTempDataProvider>();
@@ -56,7 +57,8 @@ namespace Task_Aplication
 
             services.AddAuthorization(options =>
             {
-                options.AddPolicy("Administrators", policy => policy.RequireRole("Admin"));
+                options.AddPolicy("Administrators", policy => policy.RequireRole("ADMIN"));
+                options.AddPolicy("UsersAuthorized", policy => policy.RequireRole("USER"));
             });
 
         }
@@ -89,7 +91,7 @@ namespace Task_Aplication
             {
                 routes.MapRoute(
                         name: "default",
-                        template: "{controller=Home}/{action=Index}/{id?}"
+                        template: "{controller=Login}/{action=Index}/{id?}"
                     );
             });
 

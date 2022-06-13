@@ -1,0 +1,43 @@
+﻿@model Task_Aplication.Models.DataBase.Task
+@{
+    ViewData["title"] = "Practice";
+    Layout = "_TasksList";
+}
+
+<section class="section_form_add_task">
+    <header class="header_form_add_task">
+        <h1>Actualizar tarea</h1>
+    </header>
+
+    <form method="post" asp-action="UpdateTask" class="form_add_task">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <input class="inputs_ocults" asp-for="Idtask" /> 
+            <input class="inputs_ocults" asp-for="Iduser" /> 
+
+            <div class="section_input">
+              <label asp-for="Title" class="subtitle_input"></label>
+                <input asp-for="Title" class="input_text_login" type="text"  /> 
+              <span asp-validation-for="Title" class="text-danger"></span>
+           </div>
+          <div class="section_input">
+              <label asp-for="Infotask" class="subtitle_input"></label>
+                <textarea asp-for="Infotask" class="input_text_login" type="text" cols="" rows="" autofocus></textarea> 
+              <span asp-validation-for="Infotask" class="text-danger"></span>
+           </div>
+
+           <div class="section_input">
+              <label asp-for="Date" class="subtitle_input"></label>
+              <input class="input_text_login" asp-for="Date" type="date" placeholder="Dirección de correo electronico" />
+              <span asp-validation-for="Date" class="text-danger"></span>
+           </div>
+           
+           <span>@TempData["MessageError"]</span>
+
+            <div class="inputs_sing_in_form">
+                <input type="submit" value="Registrar" class="button_submit_add_task" />
+            </div>
+
+    </form>
+
+</section>

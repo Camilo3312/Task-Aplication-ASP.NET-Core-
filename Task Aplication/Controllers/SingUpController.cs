@@ -1,23 +1,24 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Task_Aplication.Data;
 using Task_Aplication.Models.DataBase;
 
 namespace Task_Aplication.Controllers
 {
     public class SingUpController : Controller
     {
-        private tasksContext _DbContext;
+        private TasksContext _DbContext;
 
-        public SingUpController(tasksContext DbContext)
+        public SingUpController(TasksContext DbContext)
         {
             _DbContext = DbContext;
         }
         public IActionResult Index() 
         {
-            if (HttpContext.Session.GetString("SessionUser") != null)
-            {
-                return RedirectToAction("Profile", "NewTask");
-            };
+            //if (HttpContext.Session.GetString("SessionUser") != null)
+            //{
+            //    return RedirectToAction("Profile", "NewTask");
+            //};
             return View();
         }
 
@@ -25,15 +26,15 @@ namespace Task_Aplication.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult Index(User user)
         {
-            //TempData["message_alert"] = "Clickeado";
             if (ModelState.IsValid)
-            {
+            {                
                 _DbContext.Users.Add(user);
                 _DbContext.SaveChanges();
-               
+                return RedirectToAction("Index", "Login");
             }
+
+            TempData["messageError"] = "Complete el formulario";
             return View();
         }
-
     }
 }

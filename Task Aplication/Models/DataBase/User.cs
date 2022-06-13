@@ -9,7 +9,11 @@ namespace Task_Aplication.Models.DataBase
 {
     public partial class User
     {
-        private string _Password;
+        public User()
+        {
+            Tasks = new HashSet<Task>();
+        }
+
         public int Iduser { get; set; }
 
         [Required(ErrorMessage = "Porfavor ingrese un nombre")]
@@ -25,14 +29,16 @@ namespace Task_Aplication.Models.DataBase
         [Required(ErrorMessage = "Porfavor ingrese un correo")]
         [DataType(DataType.EmailAddress)]
         [Display(Name = "Correo")]
-        public string Email { get; set; } 
+        public string Email { get; set; }
 
         [Required(ErrorMessage = "Porfavor ingrese una contraseña")]
         [Display(Name = "Contraseña")]
-        public string Password { get; set; }
 
+        private string _Password;
+        public string Password { get { return _Password; } set { _Password = Encrypt.GetSHA256(value); } }
 
+        public string Rol { get; set; }
 
-        //public string Password { get { return _Password; } set { _Password = Encrypt.GetSHA256(value); } }
+        public virtual ICollection<Task> Tasks { get; set; }
     }
 }

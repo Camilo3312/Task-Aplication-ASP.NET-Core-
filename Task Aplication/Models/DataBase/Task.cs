@@ -13,13 +13,18 @@ namespace Task_Aplication.Models.DataBase
 
         [Required(ErrorMessage = "Porfavor ingrese una tarea")]
         [StringLength(100, ErrorMessage = "La {0} debe tener almenos {2}")]
-        [Display(Name = "Tarea")]
+        [Display(Name = "Descripción")]
         public string Infotask { get; set; }
 
         [Required(ErrorMessage = "Porfavor ingrese una fecha")]
         [DataType(DataType.DateTime)]
-        [Display(Name = "La tarea es para el")] 
+        [Display(Name = "Fecha establecida")]
         public DateTime? Date { get; set; }
+
+        [Required(ErrorMessage = "Porfavor ingrese un titulo")]
+        [DataType(DataType.DateTime)]
+        [Display(Name = "Título de la tarea")]
+        public string Title { get; set; }
 
         public virtual User IduserNavigation { get; set; }
     }

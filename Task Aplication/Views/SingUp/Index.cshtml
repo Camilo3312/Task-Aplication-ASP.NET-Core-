@@ -33,9 +33,11 @@
 
             <div class="mb-3">
               <label asp-for="ImageProfile" class="subtitle_input"></label>
-              <input class="input_text_login" asp-for="ImageProfile" type="text"/>
+              <input class="input_text_login" asp-for="ImageProfile" type="text" />
               <span asp-validation-for="ImageProfile" class="text-danger"></span>
            </div>
+
+           <span>@TempData["MessageError"]</span>
 
             <div class="inputs_sing_in_form">
                 <input type="submit" value="Registrar" class="button_submit" />
@@ -44,4 +46,5 @@
 
       </form>
 </div>
+
 

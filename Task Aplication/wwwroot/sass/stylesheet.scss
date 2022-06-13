@@ -1,4 +1,5 @@
-﻿@import 'fonts';
+﻿
+@import 'fonts';
 @import 'colors';
 @import 'elements';
 
@@ -9,6 +10,38 @@
 }
 
 body {
+    // Header section
+
+    .header_layot_app {
+        width: 100%;
+        padding: 20px;
+        background: linear-gradient(90deg, $primary-color, $secondary-color);
+
+        .nav_header_app {
+            max-width: 1100px;
+            margin: auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            .subtitle_section_header {
+                @include subtitles;
+                color: #FFFF;
+                font-size: 17px;
+                text-decoration: none;
+            }
+
+            .title_section_header {
+                color: #FFFF;
+            }
+
+            .btn_logout {
+                @include button_secondary;
+                text-decoration: none;
+                color: $secondary-color;
+            }
+        }
+    }
     // Login section
     .login_section {
         width: 100vw;
@@ -74,6 +107,10 @@ body {
                         flex: 1 1 auto;
                     }
                 }
+
+                .span_message_error {
+                    @include message_error;
+                }
             }
         }
     }
@@ -124,6 +161,122 @@ body {
                     @include button_secondary;
                     text-decoration: none;
                     flex: 1 1 auto;
+                }
+            }
+        }
+    }
+    // Home section
+
+    .center_section_home {
+        max-width: 1100px;
+        margin: 2em auto;
+        padding: 0 20px;
+        display: flex;
+        gap: 20px;
+
+        .link_add_task {
+            text-decoration: none;
+            flex: 1 1 auto;
+        }
+
+        .section_form_add_task {
+            flex: 1 1 auto;
+            border-radius: 15px;
+            overflow: hidden;
+            background: $primary-color-ligth;
+
+            .header_form_add_task {
+                padding: 10px 20px;
+                background: $primary-color;
+
+                h1 {
+                    color: #FFFF;
+                }
+            }
+
+            .form_add_task {
+                display: flex;
+                flex-direction: column;
+                padding: 30px;
+                gap: 10px;
+
+                .inputs_ocults {
+                    display: none;
+                }
+
+                .section_input {
+                    display: flex;
+                    flex-direction: column;
+
+                    .subtitle_input {
+                        color: $gray-1;
+                    }
+
+                    .input_text_login {
+                        @include input_text()
+                    }
+                }
+
+                .button_submit_add_task {
+                    @include button_default()
+                }
+            }
+        }
+
+        .section_tasks_to_do {
+            flex: 1 1 auto;
+            border-radius: 15px;
+            overflow: hidden;
+            background: #fff2e9;
+
+            .header_tasks_to_do {
+                padding: 10px 20px;
+                background: #eb8f4e;
+
+                h1 {
+                    color: #FFFF;
+                }
+            }
+
+            .tasks_cards {
+                padding: 20px;
+                display: flex;
+                flex-direction: column;
+                gap: 15px;
+
+                .card_info_task {
+                    padding: 10px;
+                    border-radius: 10px;
+                    background: #fce5d5;
+                }
+            }
+        }
+
+        .section_completed_tasks {
+            flex: 1 1 auto;
+            border-radius: 15px;
+            overflow: hidden;
+            background: #e9ffed;
+
+            .header_completed_tasks {
+                padding: 10px 20px;
+                background: #3fc257;
+
+                h1 {
+                    color: #FFFF;
+                }
+            }
+
+            .tasks_cards {
+                padding: 20px;
+                display: flex;
+                flex-direction: column;
+                gap: 15px;
+
+                .card_info_task {
+                    padding: 10px;
+                    border-radius: 10px;
+                    background: #caf3d1;
                 }
             }
         }

@@ -1,4 +1,15 @@
-﻿@{
+﻿@model List<Task_Aplication.Models.DataBase.User>
+@{
+    ViewData["title"] = "Panel del control";
 }
 
+@foreach(var i in Model)
+{   
+    <div class="card_user">
+        <p>@i.Iduser</p>
+        <p>@i.Names</p>
+        <p>@i.Email</p>
+        <p>@i.Rol</p>
+    </div>  
+}    
 <h1>Dashboard</h1>

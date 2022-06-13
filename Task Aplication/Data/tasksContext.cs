@@ -1,18 +1,19 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Task_Aplication.Models.DataBase;
 
 #nullable disable
 
-namespace Task_Aplication.Models.DataBase
+namespace Task_Aplication.Data
 {
-    public partial class tasksContext : DbContext
+    public partial class TasksContext : DbContext
     {
-        public tasksContext()
+        public TasksContext()
         {
         }
 
-        public tasksContext(DbContextOptions<tasksContext> options)
+        public TasksContext(DbContextOptions<TasksContext> options)
             : base(options)
         {
         }
@@ -26,17 +27,15 @@ namespace Task_Aplication.Models.DataBase
 
             modelBuilder.Entity<Task>(entity =>
             {
-                entity.HasNoKey();
+                entity.HasKey(e => e.Idtask);
 
                 entity.ToTable("tasks");
+
+                entity.Property(e => e.Idtask).HasColumnName("idtask");
 
                 entity.Property(e => e.Date)
                     .HasColumnType("datetime")
                     .HasColumnName("date");
-
-                entity.Property(e => e.Idtask)
-                    .ValueGeneratedOnAdd()
-                    .HasColumnName("idtask");
 
                 entity.Property(e => e.Iduser).HasColumnName("iduser");
 
@@ -45,8 +44,13 @@ namespace Task_Aplication.Models.DataBase
                     .IsUnicode(false)
                     .HasColumnName("infotask");
 
+                entity.Property(e => e.Title)
+                    .HasMaxLength(100)
+                    .IsUnicode(false)
+                    .HasColumnName("title");
+
                 entity.HasOne(d => d.IduserNavigation)
-                    .WithMany()
+                    .WithMany(p => p.Tasks)
                     .HasForeignKey(d => d.Iduser)
                     .HasConstraintName("fk_iduser");
             });
@@ -85,6 +89,12 @@ namespace Task_Aplication.Models.DataBase
                     .HasMaxLength(200)
                     .IsUnicode(false)
                     .HasColumnName("password");
+
+                entity.Property(e => e.Rol)
+                    .HasMaxLength(30)
+                    .IsUnicode(false)
+                    .HasColumnName("rol")
+                    .HasDefaultValueSql("('USER')");
             });
 
             OnModelCreatingPartial(modelBuilder);
