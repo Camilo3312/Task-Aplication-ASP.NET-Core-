@@ -33,9 +33,7 @@ namespace Task_Aplication.Models.DataBase
 
         [Required(ErrorMessage = "Porfavor ingrese una contraseña")]
         [Display(Name = "Contraseña")]
-
-        private string _Password;
-        public string Password { get { return _Password; } set { _Password = Encrypt.GetSHA256(value); } }
+        public string Password { get; set; } 
 
         public string Rol { get; set; }
 

@@ -1,12 +1,13 @@
 ﻿@model Task_Aplication.Models.DataBase.Task
 @{
-    ViewData["title"] = "Practice";
+    ViewData["title"] = "Actualizar tarea";
     Layout = "_TasksList";
 }
 
 <section class="section_form_add_task">
     <header class="header_form_add_task">
         <h1>Actualizar tarea</h1>
+        <a class="exit_link" asp-controller="Home" asp-action="Index">Cancelar</a>
     </header>
 
     <form method="post" asp-action="UpdateTask" class="form_add_task">
@@ -35,7 +36,7 @@
            <span>@TempData["MessageError"]</span>
 
             <div class="inputs_sing_in_form">
-                <input type="submit" value="Registrar" class="button_submit_add_task" />
+                <input type="submit" value="Actualizar tarea" class="button_submit_add_task" />
             </div>
 
     </form>

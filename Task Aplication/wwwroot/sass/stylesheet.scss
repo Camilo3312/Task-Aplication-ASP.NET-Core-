@@ -13,7 +13,6 @@ body {
     // Header section
 
     .header_layot_app {
-        width: 100%;
         padding: 20px;
         background: linear-gradient(90deg, $primary-color, $secondary-color);
 
@@ -188,8 +187,17 @@ body {
             .header_form_add_task {
                 padding: 10px 20px;
                 background: $primary-color;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
 
                 h1 {
+                    color: #FFFF;
+                }
+
+                .exit_link {
+                    text-decoration: none;
+                    font-weight: 700;
                     color: #FFFF;
                 }
             }
@@ -217,8 +225,13 @@ body {
                     }
                 }
 
-                .button_submit_add_task {
-                    @include button_default()
+                .inputs_sing_in_form {
+                    display: flex;
+                    flex-direction: column;
+
+                    .button_submit_add_task {
+                        @include button_default()
+                    }
                 }
             }
         }
@@ -228,6 +241,8 @@ body {
             border-radius: 15px;
             overflow: hidden;
             background: #fff2e9;
+            max-width: 384px;
+
 
             .header_tasks_to_do {
                 padding: 10px 20px;
@@ -244,10 +259,69 @@ body {
                 flex-direction: column;
                 gap: 15px;
 
+                .message_not_found_tasks {
+                    color: #e4b798;
+                    font-size: 16px;
+                    text-align: center;
+                }
+
                 .card_info_task {
                     padding: 10px;
                     border-radius: 10px;
                     background: #fce5d5;
+
+                    .card_task_title {
+                        color: $gray-1;
+                        font-size: 17px;
+                        margin: 0 0 5px 0;
+                    }
+
+                    .card_task_info {
+                        color: $gray-2;
+                        font-size: 14px;
+                    }
+
+                    .card_task_date {
+                        display: flex;
+                        justify-content: space-between;
+                        padding: 10px 0 0 0;
+                        margin: 10px 0 0 0;
+                        border-top: 1px solid #efd8c9;
+
+                        .card_task_info_date {
+                            font-size: 14px;
+                            color: #767676;
+                            display: flex;
+                            align-items: center;
+                            gap: 8px;
+
+                            .icon_clock {
+                                width: 17px;
+                                fill: #767676;
+                            }
+                        }
+
+                        .actions_card_task {
+                            display: flex;
+                            gap: 10px;
+
+                            a {
+                                text-decoration: none;
+                                color: #575757;
+                                font-size: 13px;
+
+                                &:hover {
+                                    color: #1a2dc1;
+                                }
+                            }
+
+                            a:last-child {
+                                &:hover {
+                                    color: red;
+                                }
+                            }
+                        }
+                    }
                 }
             }
         }
@@ -257,6 +331,7 @@ body {
             border-radius: 15px;
             overflow: hidden;
             background: #e9ffed;
+            max-width: 384px;
 
             .header_completed_tasks {
                 padding: 10px 20px;
@@ -273,14 +348,115 @@ body {
                 flex-direction: column;
                 gap: 15px;
 
+                .message_not_found_tasks {
+                    color: #a2e0ac;
+                    font-size: 16px;
+                    text-align: center;
+                }
+
                 .card_info_task {
                     padding: 10px;
                     border-radius: 10px;
                     background: #caf3d1;
+
+                    .card_task_title {
+                        color: $gray-1;
+                        font-size: 17px;
+                        margin: 0 0 5px 0;
+                    }
+
+                    .card_task_info {
+                        color: $gray-2;
+                        font-size: 14px;
+                    }
+
+                    .card_task_date {
+                        display: flex;
+                        justify-content: space-between;
+                        padding: 10px 0 0 0;
+                        margin: 10px 0 0 0;
+                        border-top: 1px solid #b8e4bf;
+
+                        .card_task_info_date {
+                            font-size: 14px;
+                            color: #767676;
+                            display: flex;
+                            align-items: center;
+                            gap: 8px;
+
+                            .icon_clock {
+                                width: 17px;
+                                fill: #767676;
+                            }
+                        }
+
+                        .actions_card_task {
+                            display: flex;
+                            gap: 10px;
+
+                            a {
+                                text-decoration: none;
+                                color: #575757;
+                                font-size: 13px;
+
+                                &:hover {
+                                    color: #1a2dc1;
+                                }
+                            }
+
+                            a:last-child {
+                                &:hover {
+                                    color: red;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .section_dashboard_admin {
+        max-width: 1100px;
+        margin: 2em auto;
+
+        .dashboard_title {
+            color: $primary-color;
+            margin: 0 0 1em 0;
+        }
+
+        .table_all_registers {
+            width: 100%;
+            padding: 10px;
+            border-radius: 10px;
+            overflow: hidden;
+            background: $primary-color-ligth;
+            border-collapse: collapse;
+
+            thead {
+                tr {
+
+                    th {
+                    padding: 10px;
+                    }
+                }
+            }
+
+            tbody {
+                tr {
+                    td {
+                        padding: 10px;
+                    }
+                }
+
+                tr:nth-child(odd) {
+                    background-color: #e7d0f3;
+                }
+
+                tr:nth-child(even) {
+                    background-color: #dbb8ed;
                 }
             }
         }
     }
 }
-
-

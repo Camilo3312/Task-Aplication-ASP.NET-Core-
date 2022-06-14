@@ -114,19 +114,16 @@ namespace Task_Aplication.Controllers
         {
             ViewBag.TasksListToDo = GetUserTasksListToDo();
             ViewBag.TasksListCompleted = GetUserCompletledTasksList();
-            var userSessionInfo = JsonConvert.DeserializeObject<User>(
-                HttpContext.Session.GetString("SessionUser")
-            );
-
+            
             if (!ModelState.IsValid)
             {
                 ViewData["MessageError"] = "Complete el formulario";
                 return View();
             }
-
-            _DbContext.Entry(task).State = EntityState.Modified;     
-            _DbContext.SaveChanges();
-
+          
+            var userSessionInfo = JsonConvert.DeserializeObject<User>(
+                HttpContext.Session.GetString("SessionUser")
+            );
             var findUser = (
                 from userTask in _DbContext.Tasks
                 where userTask.Iduser == userSessionInfo.Iduser && userTask.Idtask == task.Idtask
@@ -136,6 +133,14 @@ namespace Task_Aplication.Controllers
             {
                 return RedirectToAction("Index");
             }
+
+            //_DbContext.Entry(task).State = EntityState.Modified;
+            var TaskNew = _DbContext.Tasks.Find(task.Idtask);
+            TaskNew.Iduser = task.Iduser;
+            TaskNew.Infotask = task.Infotask;
+            TaskNew.Date = task.Date;
+            TaskNew.Title = task.Title;
+            _DbContext.SaveChanges();
 
             return RedirectToAction("Index", "Home");
         }

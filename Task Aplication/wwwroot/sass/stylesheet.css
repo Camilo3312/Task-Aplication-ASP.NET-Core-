@@ -8,7 +8,6 @@
 }
 
 body .header_layot_app {
-  width: 100%;
   padding: 20px;
   background: linear-gradient(90deg, #c281e6, #d662ab);
 }
@@ -240,8 +239,16 @@ body .center_section_home .section_form_add_task {
 body .center_section_home .section_form_add_task .header_form_add_task {
   padding: 10px 20px;
   background: #c281e6;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 body .center_section_home .section_form_add_task .header_form_add_task h1 {
+  color: #FFFF;
+}
+body .center_section_home .section_form_add_task .header_form_add_task .exit_link {
+  text-decoration: none;
+  font-weight: 700;
   color: #FFFF;
 }
 body .center_section_home .section_form_add_task .form_add_task {
@@ -275,7 +282,11 @@ body .center_section_home .section_form_add_task .form_add_task .section_input .
 body .center_section_home .section_form_add_task .form_add_task .section_input .input_text_login:focus {
   border-bottom: 2px solid #6b54bd;
 }
-body .center_section_home .section_form_add_task .form_add_task .button_submit_add_task {
+body .center_section_home .section_form_add_task .form_add_task .inputs_sing_in_form {
+  display: flex;
+  flex-direction: column;
+}
+body .center_section_home .section_form_add_task .form_add_task .inputs_sing_in_form .button_submit_add_task {
   padding: 10px 20px;
   border-radius: 20px;
   outline: none;
@@ -291,6 +302,7 @@ body .center_section_home .section_tasks_to_do {
   border-radius: 15px;
   overflow: hidden;
   background: #fff2e9;
+  max-width: 384px;
 }
 body .center_section_home .section_tasks_to_do .header_tasks_to_do {
   padding: 10px 20px;
@@ -305,16 +317,64 @@ body .center_section_home .section_tasks_to_do .tasks_cards {
   flex-direction: column;
   gap: 15px;
 }
+body .center_section_home .section_tasks_to_do .tasks_cards .message_not_found_tasks {
+  color: #e4b798;
+  font-size: 16px;
+  text-align: center;
+}
 body .center_section_home .section_tasks_to_do .tasks_cards .card_info_task {
   padding: 10px;
   border-radius: 10px;
   background: #fce5d5;
+}
+body .center_section_home .section_tasks_to_do .tasks_cards .card_info_task .card_task_title {
+  color: #313131;
+  font-size: 17px;
+  margin: 0 0 5px 0;
+}
+body .center_section_home .section_tasks_to_do .tasks_cards .card_info_task .card_task_info {
+  color: #4f4f4f;
+  font-size: 14px;
+}
+body .center_section_home .section_tasks_to_do .tasks_cards .card_info_task .card_task_date {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0 0 0;
+  margin: 10px 0 0 0;
+  border-top: 1px solid #efd8c9;
+}
+body .center_section_home .section_tasks_to_do .tasks_cards .card_info_task .card_task_date .card_task_info_date {
+  font-size: 14px;
+  color: #767676;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+body .center_section_home .section_tasks_to_do .tasks_cards .card_info_task .card_task_date .card_task_info_date .icon_clock {
+  width: 17px;
+  fill: #767676;
+}
+body .center_section_home .section_tasks_to_do .tasks_cards .card_info_task .card_task_date .actions_card_task {
+  display: flex;
+  gap: 10px;
+}
+body .center_section_home .section_tasks_to_do .tasks_cards .card_info_task .card_task_date .actions_card_task a {
+  text-decoration: none;
+  color: #575757;
+  font-size: 13px;
+}
+body .center_section_home .section_tasks_to_do .tasks_cards .card_info_task .card_task_date .actions_card_task a:hover {
+  color: #1a2dc1;
+}
+body .center_section_home .section_tasks_to_do .tasks_cards .card_info_task .card_task_date .actions_card_task a:last-child:hover {
+  color: red;
 }
 body .center_section_home .section_completed_tasks {
   flex: 1 1 auto;
   border-radius: 15px;
   overflow: hidden;
   background: #e9ffed;
+  max-width: 384px;
 }
 body .center_section_home .section_completed_tasks .header_completed_tasks {
   padding: 10px 20px;
@@ -329,8 +389,83 @@ body .center_section_home .section_completed_tasks .tasks_cards {
   flex-direction: column;
   gap: 15px;
 }
+body .center_section_home .section_completed_tasks .tasks_cards .message_not_found_tasks {
+  color: #a2e0ac;
+  font-size: 16px;
+  text-align: center;
+}
 body .center_section_home .section_completed_tasks .tasks_cards .card_info_task {
   padding: 10px;
   border-radius: 10px;
   background: #caf3d1;
+}
+body .center_section_home .section_completed_tasks .tasks_cards .card_info_task .card_task_title {
+  color: #313131;
+  font-size: 17px;
+  margin: 0 0 5px 0;
+}
+body .center_section_home .section_completed_tasks .tasks_cards .card_info_task .card_task_info {
+  color: #4f4f4f;
+  font-size: 14px;
+}
+body .center_section_home .section_completed_tasks .tasks_cards .card_info_task .card_task_date {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0 0 0;
+  margin: 10px 0 0 0;
+  border-top: 1px solid #b8e4bf;
+}
+body .center_section_home .section_completed_tasks .tasks_cards .card_info_task .card_task_date .card_task_info_date {
+  font-size: 14px;
+  color: #767676;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+body .center_section_home .section_completed_tasks .tasks_cards .card_info_task .card_task_date .card_task_info_date .icon_clock {
+  width: 17px;
+  fill: #767676;
+}
+body .center_section_home .section_completed_tasks .tasks_cards .card_info_task .card_task_date .actions_card_task {
+  display: flex;
+  gap: 10px;
+}
+body .center_section_home .section_completed_tasks .tasks_cards .card_info_task .card_task_date .actions_card_task a {
+  text-decoration: none;
+  color: #575757;
+  font-size: 13px;
+}
+body .center_section_home .section_completed_tasks .tasks_cards .card_info_task .card_task_date .actions_card_task a:hover {
+  color: #1a2dc1;
+}
+body .center_section_home .section_completed_tasks .tasks_cards .card_info_task .card_task_date .actions_card_task a:last-child:hover {
+  color: red;
+}
+body .section_dashboard_admin {
+  max-width: 1100px;
+  margin: 2em auto;
+}
+body .section_dashboard_admin .dashboard_title {
+  color: #c281e6;
+  margin: 0 0 1em 0;
+}
+body .section_dashboard_admin .table_all_registers {
+  width: 100%;
+  padding: 10px;
+  border-radius: 10px;
+  overflow: hidden;
+  background: #faf0ff;
+  border-collapse: collapse;
+}
+body .section_dashboard_admin .table_all_registers thead tr th {
+  padding: 10px;
+}
+body .section_dashboard_admin .table_all_registers tbody tr td {
+  padding: 10px;
+}
+body .section_dashboard_admin .table_all_registers tbody tr:nth-child(odd) {
+  background-color: #e7d0f3;
+}
+body .section_dashboard_admin .table_all_registers tbody tr:nth-child(even) {
+  background-color: #dbb8ed;
 }

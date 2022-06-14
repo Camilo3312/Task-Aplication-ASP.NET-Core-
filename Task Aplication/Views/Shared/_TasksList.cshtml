@@ -1,5 +1,6 @@
 ﻿@{
     Layout = "_Layout";
+    ViewData["title"] = "Home";
 }
 
 <section>
@@ -9,18 +10,30 @@
             <header class="header_tasks_to_do">
                 <h1>Tareas por realizar</h1>
             </header>
+            
             <div class="tasks_cards">
-
-            @foreach( var i in  (List<Task_Aplication.Models.DataBase.Task>)ViewBag.TasksListToDo) {
-                <div class="card_info_task">
-                        <h1>@i.Title</h1>
-                        <p>@i.Infotask</p>
-                        <div class="date_task">
-                            <p>@i.Date</p>
-                            @Html.ActionLink("Editar", "UpdateTask", new { task = i.Idtask })
-                            @Html.ActionLink("Eliminar", "DeleteTask", new { task = i.Idtask })
+                 @if(((List<Task_Aplication.Models.DataBase.Task>)ViewBag.TasksListToDo).Count() <= 0)
+                {
+                    <h1 class="message_not_found_tasks">No hay tareas por realizar</h1>
+                } else {
+                   
+                    @foreach (var i in (List<Task_Aplication.Models.DataBase.Task>)ViewBag.TasksListToDo)
+                    {
+                        <div class="card_info_task">
+                            <h1 class="card_task_title">@i.Title</h1>
+                        <p class="card_task_info">@i.Infotask</p>
+                        <div class="card_task_date">                       
+                            <div class="card_task_info_date">
+                                <img class="icon_clock" src="~/icons/icon_clock.svg" alt="" />
+                                <p>@i.Date</p>
+                            </div>
+                            <div class="actions_card_task">
+                                @Html.ActionLink("Editar", "UpdateTask", new { task = i.Idtask })                           
+                                @Html.ActionLink("Eliminar", "DeleteTask", new { task = i.Idtask })                              
+                            </div>
                         </div>
-                </div>           
+                </div> 
+                }
             }
             </div>
         </section>
@@ -30,16 +43,28 @@
                 <h1>Tareas culminadas</h1>
             </header>
             <div class="tasks_cards">
-            @foreach( var i in (List<Task_Aplication.Models.DataBase.Task>)ViewBag.TasksListCompleted ) {
-               <div class="card_info_task">
-                        <h1>@i.Title</h1>
-                        <p>@i.Infotask</p>
-                        <div class="date_task">
-                            <p>@i.Date</p>
-                            @Html.ActionLink("Editar", "UpdateTask", new { task = i.Idtask })
-                            @Html.ActionLink("Eliminar", "DeleteTask", new { task = i.Idtask })
-                        </div>
-                </div>           
+               
+                @if(((List<Task_Aplication.Models.DataBase.Task>)ViewBag.TasksListCompleted).Count() <= 0)
+                {
+                    <h1 class="message_not_found_tasks">No hay tareas culminadas</h1>
+                } else
+                {                 
+                    @foreach(var i in (List<Task_Aplication.Models.DataBase.Task>)ViewBag.TasksListCompleted) {
+                    <div class="card_info_task">
+                            <h1 class="card_task_title">@i.Title</h1>
+                            <p class="card_task_info">@i.Infotask</p>
+                            <div class="card_task_date">
+                                    <div class="card_task_info_date">
+                                    <img class="icon_clock" src="~/icons/icon_clock.svg" alt="" />
+                                    <p>@i.Date</p>
+                                </div>
+                                <div class="actions_card_task">
+                                    @Html.ActionLink("Editar", "UpdateTask", new { task = i.Idtask })                           
+                                    @Html.ActionLink("Eliminar", "DeleteTask", new { task = i.Idtask })                              
+                                </div>
+                            </div>                  
+                    </div>           
+                }         
             }
              </div>
         </section>

@@ -1,15 +1,32 @@
 ﻿@model List<Task_Aplication.Models.DataBase.User>
 @{
-    ViewData["title"] = "Panel del control";
+    ViewData["title"] = "Administrador";
 }
 
-@foreach(var i in Model)
-{   
-    <div class="card_user">
-        <p>@i.Iduser</p>
-        <p>@i.Names</p>
-        <p>@i.Email</p>
-        <p>@i.Rol</p>
-    </div>  
-}    
-<h1>Dashboard</h1>
+<section class="section_dashboard_admin">
+
+    <h1 class="dashboard_title">Administrador</h1>
+
+    <table class="table_all_registers">
+      <thead>
+        <tr>
+          <th scope="col">Id usuario</th>
+          <th scope="col">Nombres</th>
+          <th scope="col">Email</th>
+          <th scope="col">Rol</th>
+        </tr>
+      </thead>
+      <tbody>
+          @foreach(var user in Model)
+           { 
+            <tr>
+              <td>@user.Iduser</td>
+              <td>@user.Names</td>
+              <td>@user.Email</td>
+              <td>@user.Rol</td>
+            </tr>
+           }
+    </table>
+</section>
+
+

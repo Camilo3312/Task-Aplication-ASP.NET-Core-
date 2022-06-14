@@ -28,6 +28,11 @@ namespace Task_Aplication.Controllers
         [HttpPost]
         public IActionResult Index(Login user)
         {
+            if (HttpContext.User.Identity.IsAuthenticated)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+
             if (!ModelState.IsValid)
             {
                 TempData["messageError"] = "Complete los campos";
@@ -60,7 +65,7 @@ namespace Task_Aplication.Controllers
             });
 
             HttpContext.Session.SetString("SessionUser", JsonConvert.SerializeObject(findUser));
-            ViewBag.UserData = findUser.Names;
+            HttpContext.Session.SetString("NameUser", findUser.Names);
 
             if (findUser.Rol == "USER") { 
                 return RedirectToAction("Index", "Home");

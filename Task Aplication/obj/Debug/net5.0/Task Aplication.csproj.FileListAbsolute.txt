@@ -74,7 +74,6 @@ C:\Users\Camilo\Desktop\Task Aplication\Task Aplication\obj\Debug\net5.0\Razor\V
 C:\Users\Camilo\Desktop\Task Aplication\Task Aplication\obj\Debug\net5.0\Razor\Views\Admin\Dashboard.cshtml.g.cs
 C:\Users\Camilo\Desktop\Task Aplication\Task Aplication\bin\Debug\net5.0\Polly.dll
 C:\Users\Camilo\Desktop\Task Aplication\Task Aplication\obj\Debug\net5.0\Razor\Views\Shared\_LayoutAuth.cshtml.g.cs
-C:\Users\Camilo\Desktop\Task Aplication\Task Aplication\obj\Debug\net5.0\Razor\Views\Index\Index.cshtml.g.cs
 C:\Users\Camilo\Desktop\Task Aplication\Task Aplication\obj\Debug\net5.0\Razor\Views\Home\Index.cshtml.g.cs
 C:\Users\Camilo\Desktop\Task Aplication\Task Aplication\obj\Debug\net5.0\Razor\Views\Home\AddTask.cshtml.g.cs
 C:\Users\Camilo\Desktop\Task Aplication\Task Aplication\obj\Debug\net5.0\Razor\Views\Shared\_LayoutHome.cshtml.g.cs

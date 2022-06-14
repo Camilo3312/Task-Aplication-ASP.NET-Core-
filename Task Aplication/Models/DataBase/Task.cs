@@ -12,7 +12,7 @@ namespace Task_Aplication.Models.DataBase
         public int? Iduser { get; set; }
 
         [Required(ErrorMessage = "Porfavor ingrese una tarea")]
-        [StringLength(100, ErrorMessage = "La {0} debe tener almenos {2}")]
+        [StringLength(300, ErrorMessage = "La {0} debe tener almenos {2}")]
         [Display(Name = "Descripción")]
         public string Infotask { get; set; }
 

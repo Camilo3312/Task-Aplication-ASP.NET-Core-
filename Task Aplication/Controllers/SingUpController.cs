@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Task_Aplication.Data;
 using Task_Aplication.Models.DataBase;
+using Web_API;
 
 namespace Task_Aplication.Controllers
 {
@@ -27,7 +28,8 @@ namespace Task_Aplication.Controllers
         public IActionResult Index(User user)
         {
             if (ModelState.IsValid)
-            {                
+            {
+                user.Password = Encrypt.GetSHA256(user.Password);
                 _DbContext.Users.Add(user);
                 _DbContext.SaveChanges();
                 return RedirectToAction("Index", "Login");
