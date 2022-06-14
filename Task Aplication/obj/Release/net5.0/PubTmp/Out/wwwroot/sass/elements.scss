@@ -1,0 +1,59 @@
+﻿@mixin input_text() {
+    padding: 10px 0;
+    border: none;
+    outline: none;
+    border-bottom: 2px solid #f3f3f3ff;
+    color: $gray-2;
+    font-size: 16px;
+    transition: all ease 300ms;
+
+    &::placeholder {
+        color: $gray-3;
+    }
+
+    &:focus {
+        border-bottom: 2px solid #6b54bd;
+    }
+}
+
+@mixin button_default() {
+    padding: 10px 20px;
+    border-radius: 20px;
+    outline: none;
+    border: none;
+    background: linear-gradient($primary-color, $secondary-color);
+    font-weight: 700;
+    color: #FFFF;
+    font-size: 16px;
+    text-align: center;
+}
+
+@mixin button_secondary() {
+    @include button_default;
+    background: #e6e6e6;
+    color: $gray-3;
+    font-weight: 400;
+}
+
+@mixin titles() {
+    color: $gray-1;
+    font-size: 2em;
+    font-weight: 700;
+}
+
+@mixin subtitles() {
+    color: $gray-2;
+    font-size: 1.3em;
+    font-weight: 700;
+}
+
+@mixin message_error() {
+    padding: 5px 10px;
+    background: #d80c0c23;
+    border: 1px solid #d80c0cff;
+    color: #d80c0cff;
+    font-size: 13px;
+
+    display: flex;
+    align-items: center;
+}

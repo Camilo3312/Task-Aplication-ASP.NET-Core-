@@ -7,13 +7,13 @@ using Task_Aplication.Models.DataBase;
 
 namespace Task_Aplication.Data
 {
-    public partial class TasksContext : DbContext
+    public partial class dbtasksContext : DbContext
     {
-        public TasksContext()
+        public dbtasksContext()
         {
         }
 
-        public TasksContext(DbContextOptions<TasksContext> options)
+        public dbtasksContext(DbContextOptions<dbtasksContext> options)
             : base(options)
         {
         }
@@ -21,9 +21,18 @@ namespace Task_Aplication.Data
         public virtual DbSet<Task> Tasks { get; set; }
         public virtual DbSet<User> Users { get; set; }
 
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            if (!optionsBuilder.IsConfigured)
+            {
+#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
+                optionsBuilder.UseSqlServer("Server=dbtasks.mssql.somee.com; Database=dbtasks; user id=workfhours1_SQLLogin_1; pwd=camilo312; ");
+            }
+        }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.HasAnnotation("Relational:Collation", "Modern_Spanish_CI_AS");
+            modelBuilder.HasAnnotation("Relational:Collation", "SQL_Latin1_General_CP1_CI_AS");
 
             modelBuilder.Entity<Task>(entity =>
             {
@@ -62,7 +71,7 @@ namespace Task_Aplication.Data
 
                 entity.ToTable("users");
 
-                entity.HasIndex(e => e.Email, "UQ__users__AB6E6164BF0BA6B7")
+                entity.HasIndex(e => e.Email, "UQ__users__AB6E6164058589D2")
                     .IsUnique();
 
                 entity.Property(e => e.Iduser).HasColumnName("iduser");

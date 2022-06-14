@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using Web_API;
 
 #nullable disable
 
@@ -15,7 +14,6 @@ namespace Task_Aplication.Models.DataBase
         }
 
         public int Iduser { get; set; }
-
         [Required(ErrorMessage = "Porfavor ingrese un nombre")]
         [StringLength(50, ErrorMessage = "El {0} debe tener almenos {2} y máximo {1} caracteres", MinimumLength = 3)]
         [Display(Name = "Nombre")]
@@ -33,8 +31,7 @@ namespace Task_Aplication.Models.DataBase
 
         [Required(ErrorMessage = "Porfavor ingrese una contraseña")]
         [Display(Name = "Contraseña")]
-        public string Password { get; set; } 
-
+        public string Password { get; set; }
         public string Rol { get; set; }
 
         public virtual ICollection<Task> Tasks { get; set; }

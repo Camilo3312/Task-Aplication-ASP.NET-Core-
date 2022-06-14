@@ -16,9 +16,9 @@ namespace Task_Aplication.Controllers
 {   
     public class LoginController : Controller
     {
-        private TasksContext _DbContext;
+        private dbtasksContext _DbContext;
 
-        public LoginController(TasksContext DbContext) => _DbContext = DbContext;
+        public LoginController(dbtasksContext DbContext) => _DbContext = DbContext;
 
         public IActionResult Index()
         {

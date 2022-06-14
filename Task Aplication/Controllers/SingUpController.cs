@@ -8,9 +8,9 @@ namespace Task_Aplication.Controllers
 {
     public class SingUpController : Controller
     {
-        private TasksContext _DbContext;
+        private dbtasksContext _DbContext;
 
-        public SingUpController(TasksContext DbContext)
+        public SingUpController(dbtasksContext DbContext)
         {
             _DbContext = DbContext;
         }

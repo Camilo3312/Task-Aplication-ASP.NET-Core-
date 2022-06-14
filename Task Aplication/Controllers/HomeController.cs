@@ -14,8 +14,8 @@ namespace Task_Aplication.Controllers
 {
     public class HomeController : Controller
     {
-        private TasksContext _DbContext;
-        public HomeController(TasksContext DbContext)
+        private dbtasksContext _DbContext;
+        public HomeController(dbtasksContext DbContext)
         {
             _DbContext = DbContext;
         }

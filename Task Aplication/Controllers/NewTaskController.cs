@@ -8,9 +8,9 @@ namespace Task_Aplication.Controllers
 {
     public class NewTaskController : Controller
     {
-        private TasksContext _DbContext;
+        private dbtasksContext _DbContext;
 
-        public NewTaskController(TasksContext DbContext)
+        public NewTaskController(dbtasksContext DbContext)
         {
             _DbContext = DbContext;
         }

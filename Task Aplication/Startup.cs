@@ -30,7 +30,7 @@ namespace Task_Aplication
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
-            services.AddDbContext<TasksContext>(options =>
+            services.AddDbContext<dbtasksContext>(options =>
             {
                 options.UseSqlServer(Configuration.GetConnectionString("DbTasks"));
             });
